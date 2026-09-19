@@ -1,6 +1,13 @@
 version: 1.3.16
 cache: true
 
+# LibreChat bloquea por defecto los servidores MCP en direcciones internas (protección SSRF).
+# Autorizamos solo el host privado de nuestro MCP dentro del proyecto de Railway.
+mcpSettings:
+  allowedDomains:
+    - 'go-high-level-mcp-2026-complete.railway.internal'
+    - 'http://go-high-level-mcp-2026-complete.railway.internal:8000'
+
 # MCP de GoHighLevel, alcanzado por la red privada de Railway (mismo proyecto).
 # El token NO va aquí: LibreChat lo toma de la variable de entorno CRM_MCP_TOKEN.
 mcpServers:
